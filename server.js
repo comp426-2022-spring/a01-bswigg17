@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200; 
     res.setHeader('Content-Type', 'text/html');
 
-    const data = fs.readFileSync('./www/index2.html', 'utf8'); 
+    const data = fs.readFileSync('./www/index.html', 'utf8'); 
     if (data) {
         res.end(data); 
     }
