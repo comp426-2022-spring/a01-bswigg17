@@ -9,14 +9,13 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200; 
     res.setHeader('Content-Type', 'text/html');
 
-    if (fs.existsSync('./www/index.html')) {
-        const data = fs.readFileSync('./www/index.html', 'utf8'); 
-        res.end(data)
-    }
-    else {
-        console.log(err);
-        exit(1); 
-    }
+    fs.readFile('./www/index.html', 'utf8', (err, data) => {
+        if (err) {
+            console.log(err);
+            process.exit(1); 
+        }
+        res.end(data); 
+    }); 
 }); 
 
 server.listen(port, () => {
