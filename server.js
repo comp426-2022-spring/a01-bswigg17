@@ -12,8 +12,8 @@ const server = http.createServer((req, res) => {
     fs.readFile('./www/index.html', 'utf8', (err, data) => {
         if (err) {
             console.log(err);
+            process.exit(1)
             return 
-            process.exit(1);
         }
         res.end(data); 
     }); 
